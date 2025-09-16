@@ -22,5 +22,13 @@ public class OpenPanel : MonoBehaviour
         {
             myAnimator.SetBool("Open", false);
         }
+        if (Keyboard.current.sKey.wasPressedThisFrame)
+        {
+            myAnimator.SetBool("Spin", !myAnimator.GetBool("Spin"));
+        }
+        if (Keyboard.current.hKey.wasPressedThisFrame)
+        {
+            myAnimator.SetBool("Hop", !myAnimator.GetBool("Hop"));
+        }
     }
 }
