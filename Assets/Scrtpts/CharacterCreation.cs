@@ -22,6 +22,7 @@ public class CharacterCreation : MonoBehaviour
     public void ChangeName(string name)
     {
         //PlayerInfo.SetName(name);
+        
         PlayerInfoObject.SetName(name);
     }
 
