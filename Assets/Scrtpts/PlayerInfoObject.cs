@@ -20,12 +20,12 @@ public class PlayerInfoObject : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public static string GetName()
+    public string GetName()
     {
-        return instance.playerName;
+        return playerName;
     }
-    public static void SetName(string value)
+    public void SetName(string value)
     {
-        instance.playerName = value;
+        playerName = value;
     }
 }

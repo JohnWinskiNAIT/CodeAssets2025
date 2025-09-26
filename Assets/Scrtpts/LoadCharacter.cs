@@ -9,8 +9,7 @@ public class LoadCharacter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //nameText.text = PlayerInfo.GetName();
-        nameText.text = PlayerInfoObject.GetName();
+        nameText.text = PlayerInfoObject.instance.GetName();
     }
 
     // Update is called once per frame
