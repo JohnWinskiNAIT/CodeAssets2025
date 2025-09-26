@@ -50,18 +50,20 @@ public class TankControl : MonoBehaviour
         //    turret.transform.Rotate(Vector3.up * rotationSpeed * Time.fixedDeltaTime);
         //}
 
-        // Gampad Control
-        forwardValue = Gamepad.all[gamepadIndex].leftStick.up.value;
-        backwardValue = Gamepad.all[gamepadIndex].leftStick.down.value;
-        rightValue = Gamepad.all[gamepadIndex].leftStick.right.value;
-        leftValue = Gamepad.all[gamepadIndex].leftStick.left.value;
-        rightTurretValue = Gamepad.all[gamepadIndex].rightStick.right.value;
-        leftTurretValue = Gamepad.all[gamepadIndex].rightStick.left.value;
+        if (Gamepad.all.Count > gamepadIndex)
+        { 
 
-        transform.Translate(Vector3.forward * (forwardValue - backwardValue) * movementSpeed * Time.fixedDeltaTime);
-        transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
-        turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
+            // Gampad Control
+            forwardValue = Gamepad.all[gamepadIndex].leftStick.up.value;
+            backwardValue = Gamepad.all[gamepadIndex].leftStick.down.value;
+            rightValue = Gamepad.all[gamepadIndex].leftStick.right.value;
+            leftValue = Gamepad.all[gamepadIndex].leftStick.left.value;
+            rightTurretValue = Gamepad.all[gamepadIndex].rightStick.right.value;
+            leftTurretValue = Gamepad.all[gamepadIndex].rightStick.left.value;
 
-        
+            transform.Translate(Vector3.forward * (forwardValue - backwardValue) * movementSpeed * Time.fixedDeltaTime);
+            transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
+            turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
+        }
     }
 }
