@@ -13,6 +13,7 @@ public class TankControl : MonoBehaviour
     Rigidbody rbody;
 
     bool grounded = true;
+    bool jump = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,11 +42,9 @@ public class TankControl : MonoBehaviour
             leftTurretValue = Gamepad.all[gamepadIndex].rightStick.left.value;
         }
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && grounded)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && grounded && !jump)
         {
-            rbody.linearVelocity = Vector3.zero;
-            rbody.AddRelativeForce(Vector3.up * 20.0f, ForceMode.Impulse);
-            grounded = false;
+            jump = true;            
         }
     }
 
@@ -54,6 +53,14 @@ public class TankControl : MonoBehaviour
         transform.Translate(Vector3.forward * (forwardValue - backwardValue) * movementSpeed * Time.fixedDeltaTime);
         transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
         turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
+
+        if (jump)
+        {
+            rbody.linearVelocity = Vector3.zero;
+            rbody.AddRelativeForce(Vector3.up * 20.0f, ForceMode.Impulse);
+            grounded = false;
+            jump = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
