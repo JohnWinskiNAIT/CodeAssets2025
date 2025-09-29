@@ -10,49 +10,28 @@ public class TankControl : MonoBehaviour
 
     [SerializeField] int gamepadIndex;
 
+    Rigidbody rbody;
+
+    bool grounded = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        // Keyboard Control
-        //if (Keyboard.current.wKey.isPressed)
-        //{
-        //    transform.Translate(Vector3.forward * movementSpeed * Time.fixedDeltaTime);
-        //}
-
-        //if (Keyboard.current.sKey.isPressed)
-        //{
-        //    transform.Translate(-Vector3.forward * movementSpeed * Time.fixedDeltaTime);
-        //}
-
-        //if (Keyboard.current.aKey.isPressed)
-        //{
-        //    transform.Rotate(-Vector3.up * rotationSpeed * Time.fixedDeltaTime);
-        //}
-
-        //if (Keyboard.current.dKey.isPressed)
-        //{
-        //    transform.Rotate(Vector3.up * rotationSpeed * Time.fixedDeltaTime);
-        //}
-
-        //if (Keyboard.current.jKey.isPressed)
-        //{
-        //    turret.transform.Rotate(-Vector3.up * rotationSpeed * Time.fixedDeltaTime);
-        //}
-
-        //if (Keyboard.current.lKey.isPressed)
-        //{
-        //    turret.transform.Rotate(Vector3.up * rotationSpeed * Time.fixedDeltaTime);
-        //}
+        forwardValue = Keyboard.current.wKey.value;
+        backwardValue = Keyboard.current.sKey.value;
+        leftValue = Keyboard.current.aKey.value;
+        rightValue = Keyboard.current.dKey.value;
+        leftTurretValue = Keyboard.current.jKey.value;
+        rightTurretValue = Keyboard.current.lKey.value;
 
         if (Gamepad.all.Count > gamepadIndex)
-        { 
-
+        {
             // Gampad Control
             forwardValue = Gamepad.all[gamepadIndex].leftStick.up.value;
             backwardValue = Gamepad.all[gamepadIndex].leftStick.down.value;
@@ -60,10 +39,26 @@ public class TankControl : MonoBehaviour
             leftValue = Gamepad.all[gamepadIndex].leftStick.left.value;
             rightTurretValue = Gamepad.all[gamepadIndex].rightStick.right.value;
             leftTurretValue = Gamepad.all[gamepadIndex].rightStick.left.value;
-
-            transform.Translate(Vector3.forward * (forwardValue - backwardValue) * movementSpeed * Time.fixedDeltaTime);
-            transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
-            turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
         }
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && grounded)
+        {
+            rbody.linearVelocity = Vector3.zero;
+            rbody.AddRelativeForce(Vector3.up * 20.0f, ForceMode.Impulse);
+            grounded = false;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        transform.Translate(Vector3.forward * (forwardValue - backwardValue) * movementSpeed * Time.fixedDeltaTime);
+        transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
+        turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collided");
+        grounded = true;
     }
 }
