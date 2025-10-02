@@ -5,10 +5,15 @@ public class TankControl : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 3.0f, rotationSpeed = 100.0f, forwardValue, backwardValue, rightValue, leftValue, rightTurretValue, leftTurretValue;
 
-
     [SerializeField] GameObject turret;
 
+    InputAction moveAction, rotateAction, turretRotateAction;
+
+    [SerializeField] float moveValue, rotateValue, turretRotateValue;
+
     [SerializeField] int gamepadIndex;
+
+    [SerializeField] InputActionMap playerActionMap;
 
     Rigidbody rbody;
 
@@ -19,48 +24,72 @@ public class TankControl : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
+        
+        if (Gamepad.all.Count > 0)
+        {
+            playerActionMap.devices = new InputDevice[] { Gamepad.all[gamepadIndex] };
+            moveAction = playerActionMap.FindAction("Move");
+            moveAction.Enable();
+
+            rotateAction = playerActionMap.FindAction("Rotate");
+            rotateAction.Enable();
+
+            turretRotateAction = playerActionMap.FindAction("TurretRotate");
+            turretRotateAction.Enable();
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
-        forwardValue = Keyboard.current.wKey.value;
-        backwardValue = Keyboard.current.sKey.value;
-        leftValue = Keyboard.current.aKey.value;
-        rightValue = Keyboard.current.dKey.value;
-        leftTurretValue = Keyboard.current.jKey.value;
-        rightTurretValue = Keyboard.current.lKey.value;
+        // Keyboard inputs
+        //forwardValue = Keyboard.current.wKey.value;
+        //backwardValue = Keyboard.current.sKey.value;
+        //leftValue = Keyboard.current.aKey.value;
+        //rightValue = Keyboard.current.dKey.value;
+        //leftTurretValue = Keyboard.current.jKey.value;
+        //rightTurretValue = Keyboard.current.lKey.value;
 
-        if (Gamepad.all.Count > gamepadIndex)
-        {
-            // Gampad Control
-            forwardValue = Gamepad.all[gamepadIndex].leftStick.up.value;
-            backwardValue = Gamepad.all[gamepadIndex].leftStick.down.value;
-            rightValue = Gamepad.all[gamepadIndex].leftStick.right.value;
-            leftValue = Gamepad.all[gamepadIndex].leftStick.left.value;
-            rightTurretValue = Gamepad.all[gamepadIndex].rightStick.right.value;
-            leftTurretValue = Gamepad.all[gamepadIndex].rightStick.left.value;
-        }
+        // Gamepad inputs
+        //if (Gamepad.all.Count > gamepadIndex)
+        //{
+        //    // Gampad Control
+        //    forwardValue = Gamepad.all[gamepadIndex].leftStick.up.value;
+        //    backwardValue = Gamepad.all[gamepadIndex].leftStick.down.value;
+        //    rightValue = Gamepad.all[gamepadIndex].leftStick.right.value;
+        //    leftValue = Gamepad.all[gamepadIndex].leftStick.left.value;
+        //    rightTurretValue = Gamepad.all[gamepadIndex].rightStick.right.value;
+        //    leftTurretValue = Gamepad.all[gamepadIndex].rightStick.left.value;
+        //}
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && grounded && !jump)
-        {
-            jump = true;            
-        }
+        //if (Keyboard.current.spaceKey.wasPressedThisFrame && grounded && !jump)
+        //{
+        //    jump = true;            
+        //}
+
+        moveValue = moveAction.ReadValue<float>();
+        rotateValue = rotateAction.ReadValue<float>();
+        turretRotateValue = turretRotateAction.ReadValue<float>();
     }
 
     void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * (forwardValue - backwardValue) * movementSpeed * Time.fixedDeltaTime);
-        transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
-        turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
+        // Hardcoded gamepad
+        //transform.Translate(Vector3.forward * (forwardValue - backwardValue) * movementSpeed * Time.fixedDeltaTime);
+        //transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
+        //turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
 
-        if (jump)
-        {
-            rbody.linearVelocity = Vector3.zero;
-            rbody.AddRelativeForce(Vector3.up * 20.0f, ForceMode.Impulse);
-            grounded = false;
-            jump = false;
-        }
+        transform.Translate(Vector3.forward * moveValue * movementSpeed * Time.fixedDeltaTime);
+        transform.Rotate(Vector3.up, rotateValue * rotationSpeed * Time.fixedDeltaTime);
+        turret.transform.Rotate(Vector3.up, turretRotateValue * rotationSpeed * Time.fixedDeltaTime);
+
+        //if (jump)
+        //{
+        //    rbody.linearVelocity = Vector3.zero;
+        //    rbody.AddRelativeForce(Vector3.up * 20.0f, ForceMode.Impulse);
+        //    grounded = false;
+        //    jump = false;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)

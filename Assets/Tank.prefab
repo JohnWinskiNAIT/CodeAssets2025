@@ -825,7 +825,112 @@ MonoBehaviour:
   rightTurretValue: 0
   leftTurretValue: 0
   turret: {fileID: 4162477679436551618}
+  moveValue: 0
+  rotateValue: 0
+  turretRotateValue: 0
   gamepadIndex: 0
+  playerActionMap:
+    m_Name: Player
+    m_Id: 227edae6-5243-4ffe-a758-454203414a49
+    m_Asset: {fileID: 0}
+    m_Actions:
+    - m_Name: Move
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 0e35ff63-3955-4ea7-aba1-7147402616f3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: Rotate
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 938d0da6-6133-44cf-b34c-20ad14de2ac3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: TurretRotate
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 27ff3778-2898-4a65-907d-92a1ae885d42
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 1D Axis
+      m_Id: 027b3cd6-076b-4457-bd84-8f0a589ba729
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: positive
+      m_Id: f47944e9-da36-4fed-8928-1b8eee773cb7
+      m_Path: <Gamepad>/leftStick/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: negative
+      m_Id: 4d1363e5-82ed-4080-a289-7f4c78dd36ae
+      m_Path: <Gamepad>/leftStick/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: 1D Axis
+      m_Id: 32cf62c9-bc1a-46fc-8478-5d353643dd74
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 4
+    - m_Name: positive
+      m_Id: 708f72d0-bba0-41a2-92ca-f626f4ac9bed
+      m_Path: <Gamepad>/rightStick/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 8
+    - m_Name: negative
+      m_Id: 01277bd3-66d1-41ca-8e92-ca75ef5b2cf6
+      m_Path: <Gamepad>/rightStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 8
+    - m_Name: 1D Axis
+      m_Id: b5d7c6d0-b214-49f5-a2a4-1d10809f818d
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: TurretRotate
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: a4f1fe52-e143-47d8-9a43-78b33d189db8
+      m_Path: <Gamepad>/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: TurretRotate
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: f90491f4-8de5-493f-9d07-00249f0571fd
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: TurretRotate
+      m_Flags: 8
 --- !u!54 &718444279553381729
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -848,10 +953,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &7278574638883690
 BoxCollider:
