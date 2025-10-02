@@ -151,7 +151,7 @@ Transform:
   - {fileID: 1238813254}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &514069922
+--- !u!1001 &620721057
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -160,100 +160,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Actions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Actions.Array.data[2].m_Id
-      value: 27ff3778-2898-4a65-907d-92a1ae885d42
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[6].m_Id
-      value: b5d7c6d0-b214-49f5-a2a4-1d10809f818d
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[7].m_Id
-      value: a4f1fe52-e143-47d8-9a43-78b33d189db8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[8].m_Id
-      value: f90491f4-8de5-493f-9d07-00249f0571fd
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Actions.Array.data[2].m_Name
-      value: TurretRotate
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Actions.Array.data[2].m_Type
+      propertyPath: gamepadIndex
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[6].m_Name
-      value: 1D Axis
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[6].m_Path
-      value: 1DAxis
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[7].m_Name
-      value: negative
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[7].m_Path
-      value: <Gamepad>/leftShoulder
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[8].m_Name
-      value: positive
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[8].m_Path
-      value: <Gamepad>/rightShoulder
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[6].m_Flags
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[7].m_Flags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[8].m_Flags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[6].m_Action
-      value: TurretRotate
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[7].m_Action
-      value: TurretRotate
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Bindings.Array.data[8].m_Action
-      value: TurretRotate
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: playerActionMap.m_Actions.Array.data[2].m_ExpectedControlType
-      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3634837
+      value: -2.2856884
       objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 1.757
       objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.0893693
+      value: 2.047115
       objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -285,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8830443113947748299, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_Name
-      value: Tank
+      value: Tank (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -530,7 +450,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238813253}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1821586180
+--- !u!1001 &1848144016
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -538,25 +458,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1924962115682143536, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871232452209817996, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
-      propertyPath: gamepadIndex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.340144
+      value: -2.7157998
       objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.878
+      value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4475746
+      value: -0.46492338
       objectReference: {fileID: 0}
     - target: {fileID: 4317808165032274411, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -588,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8830443113947748299, guid: 6aee42b0911850f40b24fd30cb400ec2, type: 3}
       propertyPath: m_Name
-      value: Tank (1)
+      value: Tank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -601,5 +513,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 687378932}
   - {fileID: 368154096}
-  - {fileID: 514069922}
-  - {fileID: 1821586180}
+  - {fileID: 1848144016}
+  - {fileID: 620721057}

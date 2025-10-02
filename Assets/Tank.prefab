@@ -835,17 +835,9 @@ MonoBehaviour:
     m_Asset: {fileID: 0}
     m_Actions:
     - m_Name: Move
-      m_Type: 1
-      m_ExpectedControlType: Button
+      m_Type: 0
+      m_ExpectedControlType: Vector2
       m_Id: 0e35ff63-3955-4ea7-aba1-7147402616f3
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    - m_Name: Rotate
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 938d0da6-6133-44cf-b34c-20ad14de2ac3
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -859,54 +851,6 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Bindings:
-    - m_Name: 1D Axis
-      m_Id: 027b3cd6-076b-4457-bd84-8f0a589ba729
-      m_Path: 1DAxis
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: positive
-      m_Id: f47944e9-da36-4fed-8928-1b8eee773cb7
-      m_Path: <Gamepad>/leftStick/up
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: negative
-      m_Id: 4d1363e5-82ed-4080-a289-7f4c78dd36ae
-      m_Path: <Gamepad>/leftStick/down
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: 1D Axis
-      m_Id: 32cf62c9-bc1a-46fc-8478-5d353643dd74
-      m_Path: 1DAxis
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Rotate
-      m_Flags: 4
-    - m_Name: positive
-      m_Id: 708f72d0-bba0-41a2-92ca-f626f4ac9bed
-      m_Path: <Gamepad>/rightStick/right
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Rotate
-      m_Flags: 8
-    - m_Name: negative
-      m_Id: 01277bd3-66d1-41ca-8e92-ca75ef5b2cf6
-      m_Path: <Gamepad>/rightStick/left
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Rotate
-      m_Flags: 8
     - m_Name: 1D Axis
       m_Id: b5d7c6d0-b214-49f5-a2a4-1d10809f818d
       m_Path: 1DAxis
@@ -930,6 +874,46 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: TurretRotate
+      m_Flags: 8
+    - m_Name: 2D Vector
+      m_Id: 225da04d-6e61-4706-9e9d-d785eb288b76
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 7a9fe2a5-3eec-434a-a857-d0d980cf3149
+      m_Path: <Gamepad>/leftStick/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 22b5fd14-e2dc-43d7-b92b-8f7d1a06aab2
+      m_Path: <Gamepad>/leftStick/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 1f4b77da-0123-466c-9cde-5b4656a610ce
+      m_Path: <Gamepad>/rightStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 50f64ff0-a2bf-4dee-862d-487c80a1a01e
+      m_Path: <Gamepad>/rightStick/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
       m_Flags: 8
 --- !u!54 &718444279553381729
 Rigidbody:

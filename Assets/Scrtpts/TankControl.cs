@@ -7,9 +7,10 @@ public class TankControl : MonoBehaviour
 
     [SerializeField] GameObject turret;
 
-    InputAction moveAction, rotateAction, turretRotateAction;
+    InputAction moveAction, turretRotateAction;
 
-    [SerializeField] float moveValue, rotateValue, turretRotateValue;
+    Vector2 moveValue;
+    float turretRotateValue;
 
     [SerializeField] int gamepadIndex;
 
@@ -30,9 +31,6 @@ public class TankControl : MonoBehaviour
             playerActionMap.devices = new InputDevice[] { Gamepad.all[gamepadIndex] };
             moveAction = playerActionMap.FindAction("Move");
             moveAction.Enable();
-
-            rotateAction = playerActionMap.FindAction("Rotate");
-            rotateAction.Enable();
 
             turretRotateAction = playerActionMap.FindAction("TurretRotate");
             turretRotateAction.Enable();
@@ -67,8 +65,7 @@ public class TankControl : MonoBehaviour
         //    jump = true;            
         //}
 
-        moveValue = moveAction.ReadValue<float>();
-        rotateValue = rotateAction.ReadValue<float>();
+        moveValue = moveAction.ReadValue<Vector2>();
         turretRotateValue = turretRotateAction.ReadValue<float>();
     }
 
@@ -79,8 +76,8 @@ public class TankControl : MonoBehaviour
         //transform.Rotate(Vector3.up, (rightValue - leftValue) * rotationSpeed * Time.fixedDeltaTime);
         //turret.transform.Rotate(Vector3.up, (rightTurretValue - leftTurretValue) * rotationSpeed * Time.fixedDeltaTime);
 
-        transform.Translate(Vector3.forward * moveValue * movementSpeed * Time.fixedDeltaTime);
-        transform.Rotate(Vector3.up, rotateValue * rotationSpeed * Time.fixedDeltaTime);
+        transform.Translate(Vector3.forward * moveValue.y * movementSpeed * Time.fixedDeltaTime);
+        transform.Rotate(Vector3.up, moveValue.x * rotationSpeed * Time.fixedDeltaTime);
         turret.transform.Rotate(Vector3.up, turretRotateValue * rotationSpeed * Time.fixedDeltaTime);
 
         //if (jump)
