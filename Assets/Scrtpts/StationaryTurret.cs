@@ -24,7 +24,7 @@ public class StationaryTurret : MonoBehaviour
     {
         moveValue = moveAction.ReadValue<Vector2>();
 
-        if (fireAction.WasPressedThisFrame())
+        if (fireAction.IsPressed())
         {
             Debug.Log("fire");
             GameObject instantiatedObject = Instantiate(projectile, barrelLeft.transform.position, barrelLeft.transform.rotation);
