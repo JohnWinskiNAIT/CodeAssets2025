@@ -20,7 +20,7 @@ public class Floater : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, Vector3.down, out hit, maxDistance))
         {
-            float percentage = (maxDistance / (maxDistance - hit.distance));
+            float percentage = ((maxDistance - hit.distance) / maxDistance);
             rbody.AddForce(Vector3.up * forceAmount * percentage * Time.fixedDeltaTime);
         }
     }
