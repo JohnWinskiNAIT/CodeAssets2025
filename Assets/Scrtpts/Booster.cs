@@ -19,6 +19,6 @@ public class Booster : MonoBehaviour
         {
             rbody.AddForceAtPosition(transform.up * forceAmount * Time.fixedDeltaTime, transform.position);
         }
-        velocity = rbody.angularVelocity;
+        //velocity = rbody.angularVelocity;
     }
 }

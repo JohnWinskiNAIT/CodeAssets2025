@@ -54,13 +54,13 @@ public class StationaryTurret : MonoBehaviour
         guns.transform.Rotate(Vector3.right, -moveValue.y * rotationSpeed * Time.fixedDeltaTime);
 
         angles = guns.transform.localRotation.eulerAngles;
-        if (angles.x > 45 && angles.x < 180)
+        if (angles.x > 25 && angles.x < 180)
         {
-            guns.transform.localRotation = Quaternion.Euler(45, 0, 0);
+            guns.transform.localRotation = Quaternion.Euler(25, 0, 0);
         }
-        if (angles.x < 315 && angles.x > 180)
+        if (angles.x < 300 && angles.x > 180)
         {
-            guns.transform.localRotation = Quaternion.Euler(315, 0, 0);
+            guns.transform.localRotation = Quaternion.Euler(300, 0, 0);
         }
     }
 

@@ -6,12 +6,12 @@ public class Floater : MonoBehaviour
 
     [SerializeField] float forceAmount = 50.0f;
     RaycastHit hit;
-    float distance, maxDistance;
+    float maxDistance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rbody = GetComponent<Rigidbody>();
+        rbody = GetComponentInParent<Rigidbody>();
         maxDistance = 2.0f;
     }
 
@@ -21,7 +21,12 @@ public class Floater : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hit, maxDistance))
         {
             float percentage = ((maxDistance - hit.distance) / maxDistance);
-            rbody.AddForce(Vector3.up * forceAmount * percentage * Time.fixedDeltaTime);
+            rbody.AddForceAtPosition(transform.up * forceAmount * percentage * Time.fixedDeltaTime, transform.position);
+            rbody.linearDamping = 1;
+        }
+        else
+        {
+            rbody.linearDamping = 0;
         }
     }
 }
