@@ -2,21 +2,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    float fireRate, timeStamp;
+    [SerializeField] float fireRate, velocity; 
+    float timeStamp;
 
     [SerializeField] GameObject barrelEnd, projectile;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        fireRate = 1.0f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void FireWeapon()
     {
@@ -26,9 +16,11 @@ public class Weapon : MonoBehaviour
 
             Rigidbody rbody = instantiatedObject.GetComponent<Rigidbody>();
 
+            Physics.IgnoreCollision(transform.GetComponentInChildren<Collider>(), instantiatedObject.GetComponentInChildren<Collider>());
+
             if (rbody != null)
             {
-                rbody.linearVelocity = barrelEnd.transform.forward * 20;
+                rbody.linearVelocity = barrelEnd.transform.forward * velocity;
                 timeStamp = Time.time;
             }
         }

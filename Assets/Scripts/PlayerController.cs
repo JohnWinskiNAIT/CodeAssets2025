@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         movementSpeed = 3.0f;
-        rotationSpeed = 300.0f;
+        rotationSpeed = 200.0f;
     }
 
     // Update is called once per frame
@@ -25,6 +25,22 @@ public class PlayerController : MonoBehaviour
     {
         moveValue = moveAction.ReadValue<Vector2>();
         rotateValue = rotateAction.ReadValue<Vector2>();
+
+        transform.Rotate(Vector3.up, rotateValue.x * rotationSpeed * Time.fixedDeltaTime);
+
+        weaponPivot.transform.Rotate(Vector3.right, -rotateValue.y * rotationSpeed * Time.fixedDeltaTime);
+
+        angles = weaponPivot.transform.localEulerAngles;
+
+        if (angles.x < 300 && angles.x > 180)
+        {
+            weaponPivot.transform.localRotation = Quaternion.Euler(300, 0, 0);
+        }
+
+        if (angles.x > 45 && angles.x < 180)
+        {
+            weaponPivot.transform.localRotation = Quaternion.Euler(45, 0, 0);
+        }
 
         if (fireAction.IsPressed())
         {
@@ -35,21 +51,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Translate(new Vector3(moveValue.x, 0, moveValue.y) * movementSpeed * Time.fixedDeltaTime);
-        transform.Rotate(Vector3.up, rotateValue.x * rotationSpeed * Time.fixedDeltaTime);
-
-        weaponPivot.transform.Rotate(Vector3.right, -rotateValue.y * rotationSpeed * Time.fixedDeltaTime);
-
-        angles = weaponPivot.transform.localEulerAngles;
-
-        if (angles.x < 300 &&  angles.x > 180)
-        {
-            weaponPivot.transform.localRotation = Quaternion.Euler(300, 0, 0);
-        }
-
-        if (angles.x > 45 && angles.x < 180)
-        {
-            weaponPivot.transform.localRotation = Quaternion.Euler(45, 0, 0);
-        }
     }    
 
     private void OnEnable()
