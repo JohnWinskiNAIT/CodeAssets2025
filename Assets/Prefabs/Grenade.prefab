@@ -76,6 +76,7 @@ MonoBehaviour:
   lifetime: 5
   damage: 10
   contactDestruct: 1
+  explosion: {fileID: 8149823621684303679, guid: afeabcddcd9f67f489590989512f1d2c, type: 3}
 --- !u!1 &4862530817472077800
 GameObject:
   m_ObjectHideFlags: 0

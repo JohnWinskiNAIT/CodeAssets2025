@@ -6,6 +6,10 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] bool contactDestruct;
 
+    [SerializeField] GameObject explosion;
+
+    bool exploded = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,21 +18,27 @@ public class Projectile : MonoBehaviour
 
     void Destruct()
     {
-        Destroy(gameObject);
+        Destroy(gameObject);        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (contactDestruct)
+        //if (contactDestruct)
+        //{
+        //    Health health = collision.gameObject.GetComponentInParent<Health>();
+
+        //    if (health != null)
+        //    {
+        //        health.ApplyDamage(damage);
+                
+        //    }
+        //}
+        if (!exploded)
         {
-            Health health = collision.gameObject.GetComponentInParent<Health>();
-
-            if (health != null)
-            {
-                health.ApplyDamage(damage);
-            }
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            exploded = true;
         }
-
+        
         Destruct();
     }
 }
