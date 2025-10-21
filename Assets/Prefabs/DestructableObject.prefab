@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3855537495455076189}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Modifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 2653734311005704745}
   m_Layer: 0
   m_Name: DestructableObject
-  m_TagString: Untagged
+  m_TagString: Modifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
