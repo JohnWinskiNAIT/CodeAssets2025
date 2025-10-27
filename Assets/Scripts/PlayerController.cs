@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
     Vector3 angles;
 
+    [SerializeField] GameObject firstPerson, thirdPerson, playerCam;
+    bool firstPersonPerspective = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,6 +52,20 @@ public class PlayerController : MonoBehaviour
         if (fireAction2.IsPressed())
         {
             BroadcastMessage("FireWeapon2");
+        }
+
+        if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            firstPersonPerspective = !firstPersonPerspective;
+
+            if (firstPersonPerspective)
+            {
+                playerCam.transform.localPosition = firstPerson.transform.localPosition;
+            }
+            else
+            {
+                playerCam.transform.localPosition = thirdPerson.transform.localPosition;
+            }
         }
     }
 
