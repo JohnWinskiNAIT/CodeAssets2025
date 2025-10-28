@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject firstPerson, thirdPerson, playerCam;
     bool firstPersonPerspective = true;
 
+    RaycastHit hit;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,6 +63,18 @@ public class PlayerController : MonoBehaviour
             if (firstPersonPerspective)
             {
                 playerCam.transform.localPosition = firstPerson.transform.localPosition;
+            }
+            else
+            {
+                playerCam.transform.localPosition = thirdPerson.transform.localPosition;
+            }
+        }
+
+        if (!firstPersonPerspective)
+        {
+            if (Physics.Raycast(firstPerson.transform.position, thirdPerson.transform.position - firstPerson.transform.position, out hit, Vector3.Distance(firstPerson.transform.position, thirdPerson.transform.position)))
+            {
+                playerCam.transform.position = hit.point;
             }
             else
             {
